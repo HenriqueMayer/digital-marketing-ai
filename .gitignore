@@ -207,4 +207,6 @@ marimo/_lsp/
 __marimo__/
 
 # Videos
-/videos/*.mp4
+/videos/jeffnippard/*.mp4
+/videos/kallaway/*.mp4
+/videos/rourkeheath/*.mp4
