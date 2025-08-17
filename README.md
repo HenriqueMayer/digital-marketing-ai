@@ -1,5 +1,7 @@
 # digital-marketing-ai
-AI tool for digital marketing content. Pick a topic, get 10 hooks, and a video script inspired by 3 creators. Uses Agno Playground &amp; Tavily.
+AI tool for digital marketing content. Pick a topic, get 10 hooks, and a video script inspired by 3 creators. Uses Agno Playground & Tavily.
+
+![Demo of the AI tool](videos/result.gif)
 
 ## Description
 The digital-marketing-ai is a project that uses artificial intelligence to simplify content creation for digital marketing, especially for short videos like Reels. You choose a topic, and >
@@ -15,3 +17,7 @@ The digital-marketing-ai is a project that uses artificial intelligence to simpl
 - **Agno Playground**: For generating content based on prompts.
 - **Tavily API**: For searching reliable information online.
 - **Python**: The main language for integrating tools and running the agent.
+- **uv package**: Required to run the project.
+
+## Brave
+- **Important**: To work correctly, you need to deactivate the Brave shields on the Agno-Playground web page.
