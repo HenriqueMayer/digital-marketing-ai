@@ -19,10 +19,11 @@ copywriter = Agent(
     storage=SqliteStorage(table_name="agent_sessions", db_file="tmp/storage.db"),
     tools=[TavilyTools(), list_available_creators, get_creator_transcriptions],
     show_tool_calls=True,
-    instructions=open("prompts/copywriter.md").read(),
+    description=open("../prompts/copywriter.md").read(),
+    markdown=True,
 )
 
 playground = Playground(agents=[copywriter]).get_app()
 
 if __name__ == "__main__":
-    serve_playground_app(playground, port=8000)
+    serve_playground_app(playground)

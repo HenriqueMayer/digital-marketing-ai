@@ -4,26 +4,26 @@ from pathlib import Path
 
 def get_creator_transcriptions(creator_name):
     """
-    Lê as transcrições de um criador específico do arquivo JSON
-    e retorna formatado em markdown.
+    Reads the transcriptions of a specific creator from the JSON file
+    and returns them formatted in markdown.
 
     Args:
-        creator_name (str): Nome do criador (ex: 'jeffnippard', 'kallaway')
+        creator_name (str): Creator's name (e.g., 'jeffnippard', 'kallaway')
 
     Returns:
-        str: Transcrições formatadas em markdown ou mensagem de erro
+        str: Transcriptions formatted in markdown or an error message
     """
     try:
         with open("transcriptions.json", "r", encoding="utf-8") as f:
             transcriptions = json.load(f)
 
         if creator_name not in transcriptions:
-            return f"Criador '{creator_name}' não encontrado. Criadores disponíveis: {list(transcriptions.keys())}"
+            return f"Creator '{creator_name}' not found. Available creators: {list(transcriptions.keys())}"
 
         creator_transcriptions = transcriptions[creator_name]
 
         if not creator_transcriptions:
-            return f"Nenhuma transcrição encontrada para o criador '{creator_name}'"
+            return f"No transcription found for creator '{creator_name}'"
 
         formatted_transcriptions = []
         for i, item in enumerate(creator_transcriptions, 1):
@@ -34,19 +34,19 @@ def get_creator_transcriptions(creator_name):
         return "\n\n".join(formatted_transcriptions)
 
     except FileNotFoundError:
-        return "Arquivo transcriptions.json não encontrado. Execute transcripter.py primeiro."
+        return "File transcriptions.json not found. Run transcripter.py first."
     except json.JSONDecodeError:
-        return "Erro ao ler o arquivo transcriptions.json. Arquivo corrompido."
+        return "Error reading transcriptions.json. File corrupted."
     except Exception as e:
-        return f"Erro inesperado: {str(e)}"
+        return f"Unexpected error: {str(e)}"
 
 
 def list_available_creators():
     """
-    Lista todos os criadores disponíveis no arquivo JSON.
+    Lists all available creators from the JSON file.
 
     Returns:
-        str: Lista de criadores disponíveis
+        str: List of available creators
     """
     try:
         with open("transcriptions.json", "r", encoding="utf-8") as f:
@@ -54,11 +54,11 @@ def list_available_creators():
 
         creators = list(transcriptions.keys())
         if creators:
-            return f"Criadores disponíveis: {', '.join(creators)}"
+            return f"Available creators: {', '.join(creators)}"
         else:
-            return "Nenhum criador encontrado no arquivo."
+            return "No creators found in the file."
 
     except FileNotFoundError:
-        return "Arquivo transcriptions.json não encontrado."
+        return "File transcriptions.json not found."
     except Exception as e:
-        return f"Erro ao listar criadores: {str(e)}"
+        return f"Error while listing creators: {str(e)}"
